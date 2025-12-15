@@ -18,18 +18,18 @@ DATABASE = os.getenv('DATABASE')
 MODEL = os.getenv('MODEL')
 
 
-#load model
+#for load model
 model = joblib.load('model_rfc_final.pkl')
 
 #start date for prediction
 start_date = datetime.strptime('2021-08-01', '%Y-%m-%d')
 
-# function to decode tanggal
+#function to decode tanggal
 def decode_tanggal(days_since_start):
     target_date = start_date + timedelta(days=int(days_since_start))
     return target_date.strftime('%Y-%m-%d')
 
-#decoded nama_produk
+#for decoded nama_produk
 nama_produk_decoded = {
     0: 'Bolen Banana',
     1: 'Bolen Cokju (Mini)',
@@ -40,7 +40,7 @@ nama_produk_decoded = {
     6: 'Bolen Proltape',
 }
 
-#decoded (status stok)
+#for decoded (status stok)
 status_decoded = {
     0: 'normal',
     1: 'overstock',
